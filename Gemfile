@@ -71,3 +71,4 @@ group :test do
   gem "webdrivers"
 end
 gem "simple_calendar", "~> 2.0"
+gem 'rails-i18n'
