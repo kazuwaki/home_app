@@ -1,3 +1,25 @@
-<%= month_calendar do |date| %>
+<%= form_with model: @event do |f| %>
+  <div class="form_area">
+    <%= f.label "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form_area">
+    <%= f.label "内容" %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="form_area">
+    <%= f.label "日時" %>
+    <%= f.datetime_select :start_time %>
+  </div>
+  <div class="form_area">
+    <%= f.submit "内容を保存" %>
+  </div>
+<% end %>
+<%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
+  <% events.each do |event| %>
+    <div>
+      <%= event.title %>
+    </div>
+  <% end %>
 <% end %>
